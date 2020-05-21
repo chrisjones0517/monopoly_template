@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#board {
+    background-image: url('/board.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vw;
+    width: 80vw;
+    max-width: 50rem;
+    max-height: 50rem;
+    border: 2px solid #000;
+    margin: auto;
+    margin-top: 3rem;
+    position: relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes startBtnEffect {
+    from {border: 10px solid rgb(197, 214, 245);}
+    to {border: 10px solid rgb(48, 87, 129);}
+}
+
+#start {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    margin-left: -96.922px;
+    margin-top: -24px;
+    animation-name: startBtnEffect;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.btn-primary {
+    animation-name: startBtnEffect;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* #menu-title {
+    margin-left: 38%;
+} */
+
+.optionLabel {
+    margin-right: 1rem;
+}
+
+.token {
+    width: 3rem;
+    height: 3rem;
 }
