@@ -8,6 +8,10 @@ export const MainMenu = () => {
     const radioHumanPlayerOptions = [];
     const radioComputerPlayerOptions = [];
 
+    const modalCloser = () => {
+        $('#main').hide();
+    };
+
     const submitForm = () => {
         try {
             const computer = parseInt(document.querySelector('input[name="computer-number"]:checked').value);
@@ -81,6 +85,7 @@ export const MainMenu = () => {
                 updatePlayers(players);
                 updateTokens(tokens);
                 updateModalStatus('first');
+                $('#start').show();
             }
         } catch (error) {
             $('#error').append('<h4>All fields must be selected.</h4>').css('color', 'red');
@@ -121,48 +126,64 @@ export const MainMenu = () => {
     }
 
     return (
-        <div id="mainMenu">
-            <div>
-                <h4 id="inputLabel1">Please choose the number of computer players.</h4>
-                {
-                    radioComputerPlayerOptions.map(item => {
-                        return item;
+        <div id="main" className="modal text-center">
+            <div className="modal-dialog modal-lg modal-dialog-centered">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h2 id="menu-title" className="modal-title mx-auto">Main Menu</h2>
 
-                    })
-                }
-            </div>
-            <div>
-                <h4>Please choose the number of human players.</h4>
-                {
-                    radioHumanPlayerOptions.map(item => {
-                        return item;
+                    </div>
+                    <div className="modal-body">
+                        <div>
+                            <h4 id="inputLabel1">Please choose the number of computer players.</h4>
+                            {
+                                radioComputerPlayerOptions.map(item => {
+                                    return item;
 
-                    })
-                }
-            </div>
-            <div>
-                <h4>Please choose a token.</h4>
-                {
-                    tokens.map((item, index) => {
-                        let i = index + 1;
-                        return (
-                            <label className="optionLabel" key={"optionLabelToken" + i}>
-                                <input
-                                    id={"tokenOption" + i}
-                                    key={"tokenOption" + i}
-                                    type="radio"
-                                    value={i}
-                                    name="token"
-                                />
-                                <img className="token" src={item.url} alt={item.alt + ' token'}></img>
-                            </label>
+                                })
+                            }
+                        </div>
+                        <div>
+                            <h4>Please choose the number of human players.</h4>
+                            {
+                                radioHumanPlayerOptions.map(item => {
+                                    return item;
 
-                        )
-                    })
-                }
+                                })
+                            }
+                        </div>
+                        <div>
+                            <h4>Please choose a token.</h4>
+                            {
+                                tokens.map((item, index) => {
+                                    let i = index + 1;
+                                    return (
+                                        <label className="optionLabel" key={"optionLabelToken" + i}>
+                                            <input
+                                                id={"tokenOption" + i}
+                                                key={"tokenOption" + i}
+                                                type="radio"
+                                                value={i}
+                                                name="token"
+                                            />
+                                            <img className="token" src={item.url} alt={item.alt + ' token'}></img>
+                                        </label>
+
+                                    )
+                                })
+                            }
+                        </div>
+                        <div id="error"></div>
+
+                    </div>
+                    <div className="modal-footer">
+                        <button onClick={() => submitForm()} id="beginGame" className="btn btn-primary btn-block">Begin Game</button>
+                        <button onClick={() => modalCloser()} type="button" className="btn btn-secondary btn-block mt-2">
+                            Close
+                            </button>
+                    </div>
+                </div>
             </div>
-            <div id="error"></div>
-            <button onClick={() => submitForm()} id="beginGame" className="btn btn-primary btn-block">Begin Game</button>
         </div>
     )
 }

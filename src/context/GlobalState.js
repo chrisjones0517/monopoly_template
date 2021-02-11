@@ -14,7 +14,7 @@ const initialState = {
         { alt: 'wheel barrow', url: 'wheelBarrow.png' }
     ],
     players: [],
-    modalStatus: '',
+    modalStatus: 'main',
     chance: [
         { text: 'ELECTED CHAIRMAN OF THE BOARD. PAY EACH PLAYER $50', cash: 0 },
         { text: 'YOUR BUILDING AND LOAN MATURES. COLLECT $150', cash: 150 },

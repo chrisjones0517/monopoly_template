@@ -10,7 +10,7 @@ export const PlayerStatusDisplay = () => {
     console.log('players', players);
     return (
 
-        <table className="table table-striped w-75 mx-auto mt-3">
+        <table className="table table-striped w-75 mx-auto mt-3 mb-5">
             <thead>
                 <tr>
                     <th scope="col">Player</th>
